@@ -1,0 +1,13 @@
+<div class="product-card">
+  <div class="product-image">
+    <img [src]="product.image" alt="" />
+  </div>
+  <div class="product-info-top">
+    <h2>{{ product.title }}</h2>
+    <p class="price">{{ product.price | currency: "EUR" }}</p>
+  </div>
+  <div class="product-info-bottom">
+    <p>{{ product.description }}</p>
+    <p class="email">{{ product.email }}</p>
+  </div>
+</div>

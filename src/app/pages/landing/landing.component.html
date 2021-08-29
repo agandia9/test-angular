@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div class="products-container">
+  <div class="remaining-products-container">
+    <span
+      >Mostrando {{ showedProducts.length }} elementos de
+      {{ products.length }}</span
+    >
+  </div>
+  <div
+    class="products-list"
+    infiniteScroll
+    (scrolled)="onScroll()"
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="200"
+  >
+    <app-test-product-card
+      *ngFor="let product of showedProducts"
+      [product]="product"
+    ></app-test-product-card>
+  </div>
+</div>
