@@ -1,3 +1,20 @@
-<button *ngIf="" (click)="(action)" [class]="buttonType">
+<button
+  *ngIf="buttonType === 'primary'"
+  (click)="onClick()"
+  [class]="buttonType"
+>
   {{ buttonText }}
+</button>
+<button *ngIf="buttonType === 'fav'" (click)="onClick()" [class]="buttonType">
+  {{ buttonText }}
+  <img [src]="'../../../assets/icons/fav.svg'" alt="" />
+</button>
+
+<button
+  *ngIf="buttonType === 'closemodal'"
+  (click)="onClick()"
+  [class]="buttonType"
+>
+  {{ buttonText }}
+  <img [src]="'../../../assets/icons/close.svg'" alt="" />
 </button>

@@ -1,0 +1,41 @@
+@import '../../../styles'
+.product-fav-container
+    display: flex
+    flex-direction: row
+    padding-bottom: 20px
+    padding-top: 20px
+    align-items: center
+    justify-content: space-between
+    &.last-product
+        border-bottom: 1px solid $secondary-color
+    .image
+        display: flex
+        img
+            width: 150px
+            height: 150px
+            object-fit: cover
+            border-radius: 20px
+    .info
+        display: flex
+        justify-content: space-around
+        width: 100%
+        text-align: center
+        padding-left: 10px
+        padding-right: 10px
+        .title
+            font-size: 20px
+            text-overflow: ellipsis
+            white-space: nowrap
+            overflow: hidden
+            width: 60%
+        .price
+            font-family: 'SourceSansBold'
+            font-size: 20px
+            text-overflow: ellipsis
+            white-space: nowrap
+            overflow: hidden
+            width: 40%
+    .fav-section 
+        img
+            width: 25px
+            cursor: pointer 

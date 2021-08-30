@@ -1,6 +1,6 @@
 export enum EButtonType {
   Primary = 'primary',
   Secondary = 'secondary',
-  Logo = 'rounded',
+  CloseModal = 'closemodal',
   Fav = 'fav',
 }

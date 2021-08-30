@@ -14,6 +14,9 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
+import { StoreModule } from '@ngrx/store';
+import { favReducer } from './store/fav.reducer';
+import { TestProductFavListComponent } from './shared/test-product-fav-list/test-product-fav-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,12 +27,14 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     TestFavModalComponent,
     LandingComponent,
     HeaderComponent,
+    TestProductFavListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     InfiniteScrollModule,
+    StoreModule.forRoot({ favList: favReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent],

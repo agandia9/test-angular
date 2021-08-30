@@ -4,4 +4,5 @@ export interface IProductInfo {
   image: string;
   price: string;
   title: string;
+  id: number;
 }

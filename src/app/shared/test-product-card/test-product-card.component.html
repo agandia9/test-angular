@@ -10,4 +10,19 @@
     <p>{{ product.description }}</p>
     <p class="email">{{ product.email }}</p>
   </div>
+
+  <div class="fav-section" *ngIf="isInFav">
+    <img
+      [src]="'../../../assets/icons/fav.svg'"
+      alt=""
+      (click)="removeFromFav()"
+    />
+  </div>
+  <div class="fav-section" *ngIf="!isInFav">
+    <img
+      [src]="'../../../assets/icons/fav-empty.svg'"
+      alt=""
+      (click)="clickOnFav()"
+    />
+  </div>
 </div>

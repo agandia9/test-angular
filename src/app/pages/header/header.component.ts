@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalService } from 'src/app/services/modal-service.service';
 import { EButtonType } from '../../../app/data-types/button.enum';
 
 @Component({
@@ -8,7 +9,11 @@ import { EButtonType } from '../../../app/data-types/button.enum';
 })
 export class HeaderComponent implements OnInit {
   public EButtonType = EButtonType;
-  constructor() {}
+  constructor(private modalService: ModalService) {}
 
   ngOnInit(): void {}
+  public openFavModal() {
+    console.log('????');
+    this.modalService.open();
+  }
 }

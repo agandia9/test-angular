@@ -16,6 +16,8 @@
     <app-test-product-card
       *ngFor="let product of showedProducts"
       [product]="product"
+      (addFav)="addFav($event)"
+      (removeFav)="removeFav($event)"
     ></app-test-product-card>
   </div>
 </div>

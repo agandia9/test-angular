@@ -1,0 +1,21 @@
+<div
+  class="product-fav-container"
+  [ngClass]="!isLastProduct ? 'last-product' : null"
+>
+  <div class="image">
+    <img [src]="product.image" alt="" />
+  </div>
+  <div class="info">
+    <p class="title">{{ product.title }}</p>
+    <p class="price">{{ product.price | currency: "EUR" }}</p>
+  </div>
+  <div class="action">
+    <div class="fav-section" *ngIf="isInFav">
+      <img
+        [src]="'../../../assets/icons/fav.svg'"
+        alt=""
+        (click)="removeFromFav()"
+      />
+    </div>
+  </div>
+</div>

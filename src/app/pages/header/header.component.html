@@ -4,5 +4,8 @@
   </div>
 
   <app-test-search-bar></app-test-search-bar>
-  <app-test-button [buttonType]="EButtonType.Fav"></app-test-button>
+  <app-test-button
+    [buttonType]="EButtonType.Fav"
+    (action)="openFavModal()"
+  ></app-test-button>
 </div>

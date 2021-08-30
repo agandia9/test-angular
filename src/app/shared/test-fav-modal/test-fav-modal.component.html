@@ -1,1 +1,25 @@
-<p>test-fav-modal works!</p>
+<ng-container *ngIf="isDisplayModal | async as display">
+  <section [class.open]="display === 'open'" (click)="close()">
+    <div (click)="$event.stopPropagation()">
+      <div class="close">
+        <app-test-button
+          (action)="close()"
+          [buttonType]="EButtonType.CloseModal"
+        ></app-test-button>
+      </div>
+      <div class="fav-full" *ngIf="_favList.length">
+        <h1>Tu lista de productos favoritos</h1>
+        <div *ngFor="let product of _favList; let i = index">
+          <app-test-product-fav-list
+            [product]="product"
+            [isLastProduct]="i === _favList.length - 1"
+          ></app-test-product-fav-list>
+        </div>
+      </div>
+      <div class="fav-empty" *ngIf="!_favList.length">
+        <h1>No hay productos en tu lista de favoritos... ¡aún!</h1>
+        <p>¡Añade tus productos favoritos para no dejarlos escapar!</p>
+      </div>
+    </div>
+  </section>
+</ng-container>
