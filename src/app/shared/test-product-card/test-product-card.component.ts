@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { IProductInfo } from 'src/app/data-types/product-info.interface';
+import { IProductInfo } from '../../../app/data-types/product-info.interface';
 
 @Component({
   selector: 'app-test-product-card',

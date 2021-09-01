@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalService } from 'src/app/services/modal-service.service';
+import { ModalService } from '../../../app/services/modal-service.service';
 import { EButtonType } from '../../../app/data-types/button.enum';
 
 @Component({
@@ -13,7 +13,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
   public openFavModal() {
-    console.log('????');
     this.modalService.open();
   }
 }

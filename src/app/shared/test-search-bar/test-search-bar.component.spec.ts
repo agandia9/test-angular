@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TestSearchBarComponent } from './test-search-bar.component';
@@ -8,9 +9,9 @@ describe('TestSearchBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TestSearchBarComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule],
+      declarations: [TestSearchBarComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

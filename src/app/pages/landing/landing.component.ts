@@ -14,19 +14,41 @@ import { FavsService } from '../../../app/services/favs-service.service';
 export class LandingComponent implements OnInit {
   products: Array<IProductInfo> = [];
   showedProducts: Array<IProductInfo> = [];
-  index = 0;
+  copyFilteredItems$: Array<IProductInfo> = [];
+  index: number = 0;
   favList$: Observable<any>;
-
+  searchText: string = '';
+  searchCriteria: string = '';
   constructor(
     private productsService: ProductsService,
     private favsService: FavsService
-  ) {}
+  ) {
+    this.productsService.search.subscribe((searchStr) => {
+      this.searchText = searchStr;
+      this.filteredItems();
+    });
+    this.productsService.criteria.subscribe((searchCrit) => {
+      this.searchCriteria = searchCrit;
+      this.filteredItems();
+    });
+  }
 
   ngOnInit(): void {
     this.getProductsList();
   }
-
-  private getProductsList() {
+  assignCopy() {
+    this.copyFilteredItems$ = Object.assign(this.showedProducts);
+  }
+  public filteredItems() {
+    if (this.searchCriteria.length && this.searchText.length) {
+      this.copyFilteredItems$ = this.products.filter((product) =>
+        product[this.searchCriteria.toLowerCase()].includes(this.searchText)
+      );
+    } else {
+      this.assignCopy();
+    }
+  }
+  public getProductsList() {
     this.productsService.getProductsList().subscribe((data: any) => {
       const { items } = data;
 
@@ -39,7 +61,9 @@ export class LandingComponent implements OnInit {
       );
       this.index += 5;
     });
+    this.assignCopy();
   }
+
   public onScroll() {
     if (this.index < this.products.length) {
       this.showedProducts.push(

@@ -8,9 +8,8 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
-    })
-    .compileComponents();
+      declarations: [HeaderComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,13 @@ describe('HeaderComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should render search bar', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('app-test-search-bar')).toBeTruthy();
+  });
+  it('should render button', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('app-test-button')).toBeTruthy();
   });
 });

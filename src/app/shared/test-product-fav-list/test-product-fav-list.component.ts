@@ -23,9 +23,6 @@ export class TestProductFavListComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public removeProductFromFav() {
-    console.log(this.product);
-  }
   get isInFav() {
     return this.favList$.find(
       (product: IProductInfo) => product.id === this.product.id

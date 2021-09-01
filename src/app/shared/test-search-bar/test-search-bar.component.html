@@ -1,1 +1,10 @@
-<input type="text" />
+<div class="search-bar-container">
+  <img [src]="'../../../assets/icons/search.svg'" alt="" />
+  <input type="text" (input)="onChangeSearchText($event)" />
+  <select (change)="onChangeSearchCriteria($event)">
+    <option disabled value="" selected>Escoge un criterio de busqueda</option>
+    <option *ngFor="let criteria of searchCriteria" [value]="criteria">
+      {{ criteria }}
+    </option>
+  </select>
+</div>

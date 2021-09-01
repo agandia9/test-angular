@@ -15,6 +15,5 @@ const _favReducer = createReducer(
 );
 
 export function favReducer(state, action) {
-  // console.log(state, action);
   return _favReducer(state, action);
 }

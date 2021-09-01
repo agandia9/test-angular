@@ -13,7 +13,6 @@ export class FavsService {
     this.store.dispatch(add({ newProduct: fav }));
   }
   public removeFav(fav: any) {
-    console.log(fav);
     this.store.dispatch(remove({ id: fav.id }));
   }
 }

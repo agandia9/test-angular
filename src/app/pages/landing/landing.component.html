@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="products-container">
   <div class="remaining-products-container">
-    <span
+    <span *ngIf="!searchCriteria.length || !searchText.length"
       >Mostrando {{ showedProducts.length }} elementos de
       {{ products.length }}</span
     >
@@ -14,7 +14,7 @@
     [infiniteScrollThrottle]="200"
   >
     <app-test-product-card
-      *ngFor="let product of showedProducts"
+      *ngFor="let product of copyFilteredItems$"
       [product]="product"
       (addFav)="addFav($event)"
       (removeFav)="removeFav($event)"
