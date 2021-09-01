@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
 import { favReducer } from '../../../app/store/fav.reducer';
 
@@ -28,23 +27,30 @@ describe('TestFavModalComponent', () => {
         title: 'Test',
         price: '10',
       },
+      {
+        id: 2,
+        email: 'example2@example',
+        description: 'Lorem ipsum dolor sit',
+        image: '',
+        title: 'Test2',
+        price: '20',
+      },
     ];
     fixture.detectChanges();
   });
 
   it('if products are added in favlist, should render the list', () => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('app-test-product-fav-list')).not.toBe(null);
+    expect(
+      compiled.querySelectorAll('app-test-product-fav-list').length
+    ).toEqual(component._favList.length);
   });
 
-  // beforeEach(() => {
-  //   fixture = TestBed.createComponent(TestFavModalComponent);
-  //   component = fixture.componentInstance;
-  //   component._favList = [];
-  //   fixture.detectChanges();
-  // });
-  // it('if products are added in favlist, should render the list', () => {
-  //   const compiled = fixture.debugElement.nativeElement;
-  //   expect(compiled.debugElement.query(By.css('.addItem'))).toBe(null);
-  // });
+  // if favlist is null, should render fav-empty"
+  it('if favlist is null, should render fav-empty"', () => {
+    component._favList = [];
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.fav-empty')).toBeDefined();
+  });
 });

@@ -3,7 +3,7 @@
   (click)="onClick()"
   [class]="buttonType"
 >
-  {{ buttonText }}
+  <p class="btn-text">{{ buttonText }}</p>
 </button>
 <button *ngIf="buttonType === 'fav'" (click)="onClick()" [class]="buttonType">
   {{ buttonText }}

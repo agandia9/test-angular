@@ -23,4 +23,8 @@ describe('TestSearchBarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('criteria search elements should be length === 4', () => {
+    expect(component.searchCriteria.length).toEqual(4);
+  });
 });
